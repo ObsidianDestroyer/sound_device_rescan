@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ ! $(whoami)="root" ]; then
+if [[ $(id -u) -ne 0 ]]; then
     exec sudo "$0" "$@"
     echo "Error: failed to execute sudo" >&2
     exit 1
